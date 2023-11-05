@@ -25,10 +25,10 @@ app.get('*',function(_,res){
 })
 dotenv.config();
 const PORT =  process.env.PORT||8000;
-const USERNAME = process.env.DB_USERNAME;
-const PASSWORD = process.env.DB_PASSWORD;
+const username = process.env.DB_USERNAME;
+const password = process.env.DB_PASSWORD;
 
 
 
-Connection(USERNAME,PASSWORD);
+Connection(username,password);
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
