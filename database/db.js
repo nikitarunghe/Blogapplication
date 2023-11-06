@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-
+import dotenv from 'dotenv';
 
  
-   const Connection = async (username, password) => {
-        const URL =`mongodb+srv://${username}:${password}@cluster0.pn9ukdy.mongodb.net/?retryWrites=true&w=majority`;
+   const Connection = async () => {
+        const URL =`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.pn9ukdy.mongodb.net/?retryWrites=true&w=majority`;
   
     
     try{
