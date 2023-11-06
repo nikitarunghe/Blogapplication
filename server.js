@@ -25,7 +25,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', Router);
 app.use(express.static(path.join(__dirname, './client/build')));
 
+
 app.get('*', function (_, res) {
+  const err = new Error('Something went wrong.');
+
   if (err) {
     return res.status(500).send(err);
   }
