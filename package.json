@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "npm install && npm run build"
   },
   "author": "nikita",
   "license": "ISC",
