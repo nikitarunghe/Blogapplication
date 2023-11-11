@@ -25,6 +25,10 @@ export const singupUser = async (request, response) => {
 
 
 export const loginUser = async (request, response) => {
+    
+    response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Credentials', true);
+    
     let user = await User.findOne({ username: request.body.username });
     if (!user) {
         return response.status(400).json({ msg: 'Username does not match' });
