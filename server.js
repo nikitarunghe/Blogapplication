@@ -17,12 +17,14 @@ const PORT = process.env.PORT || 8000;
 
 
 
-Connection();
+
 
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', Router);
+
+
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 
@@ -36,4 +38,11 @@ app.get('*', function (_, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
+// Connection(); 
+// app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`)); 
+
+Connection().then(() => {
+  app.listen(PORT, () => {
+      console.log("Server is running successfully on PORT ${PORT}");
+  })
+})
